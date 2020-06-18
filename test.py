@@ -31,7 +31,7 @@ for path in glob.glob(test_img_folder):
     for result_images in glob.glob(results_folder):
       if os.path.splitext(os.path.basename(result_images))[0][0:-4] == os.path.splitext(os.path.basename(path))[0]:
         skip = 1
-  if skip == 0 and int(sys.argv[3]) == 0:
+  if skip == 0 and int(sys.argv[3]) == 1:
     idx += 1
     base = os.path.splitext(os.path.basename(path))[0]
     print(idx, base)
@@ -46,7 +46,7 @@ for path in glob.glob(test_img_folder):
     output = np.transpose(output[[2, 1, 0], :, :], (1, 2, 0))
     output = (output * 255.0).round()
     cv2.imwrite('results/{:s}_rlt.png'.format(base), output)
-  if int(sys.argv[3]) == 1:
+  if int(sys.argv[3]) == 0:
     idx += 1
     base = os.path.splitext(os.path.basename(path))[0]
     print(idx, base)
