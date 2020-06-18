@@ -30,9 +30,6 @@ for path in glob.glob(test_img_folder):
   for result_images in glob.glob(results_folder):
     if os.path.splitext(os.path.basename(result_images))[0][0:-4] == os.path.splitext(os.path.basename(path))[0]:
       skip = 1
-
-  #print(skip)
-
   if skip == 0 and int(sys.argv[3]) == 0:
     idx += 1
     base = os.path.splitext(os.path.basename(path))[0]
