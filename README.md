@@ -7,6 +7,7 @@ Enhanced Super-Resolution Generative Adversarial Networks by Xintao Wang, [Ke Yu
 
 Original Colab file created by shahidul56 can be found [here](https://github.com/xinntao/ESRGAN/pull/22) and [here](https://colab.research.google.com/github/shahidul56/ESRGAN/blob/master/ESRGAN.ipynb). This notebook is a modification by styler00dollar.
 
+Also thanks to [ata4](https://github.com/ata4) for creating [esrgan-launcher](https://github.com/ata4/esrgan-launcher).
 
 #### Important information
 
