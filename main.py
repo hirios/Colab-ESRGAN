@@ -8,6 +8,7 @@ import numpy as np
 import torch
 import model
 import upscale
+import time
 
 class ESRGAN(object):
     def __init__(self):
@@ -112,6 +113,7 @@ class ESRGAN(object):
                     raise RuntimeError("Model list must be in format [model path]%c[weight]%c..." % (os.path.pathsep, os.path.pathsep))
 
                 for model_part in model_parts:
+
                     if path is None:
                         # start with the model path first
                         path = model_part
@@ -127,6 +129,7 @@ class ESRGAN(object):
 
                         # continue with next pair
                         path = None
+
 
                 models.append(model.WeightedFileListModel(model_paths))
             else:
@@ -169,7 +172,12 @@ class ESRGAN(object):
             print("No models selected or found!")
             return 1
 
+        
+        time_values = []
+        amount_files = len(os.listdir(args.input))
+
         for model_upscale in self.models_upscale:
+            counter = 0
             models = self.models_prefilter + [model_upscale] + self.models_postfilter
             model_name = "_".join([model.name() for model in models])
 
@@ -181,13 +189,24 @@ class ESRGAN(object):
             if os.path.isdir(args.input):
                 for dirpath, _, filenames in os.walk(args.input):
                     for filename in filenames:
-                        input_path = os.path.join(dirpath, filename)
+                        start = time.time()
+                        counter += 1
 
+                        input_path = os.path.join(dirpath, filename)
+                        
                         input_path_rel = os.path.relpath(input_path, args.input)
                         output_path_rel = os.path.splitext(input_path_rel)[0] + ".png"
                         output_path = os.path.join(output_dir, output_path_rel)
                         os.makedirs(os.path.dirname(output_path), exist_ok=True)
                         self._process_file(input_path, output_path, models)
+                        
+                        end = time.time()
+                        final_time = end - start 
+                        time_values.append(final_time)
+                        print('Image %d out of %d' %(counter,amount_files))
+
+                        print(f"********** Time per frame (avg): %d s Time left: %d s **********" % ( (sum(time_values) / len(time_values)), (sum(time_values) / len(time_values)*(amount_files-counter))))
+
 
             else:
                 for input_path in glob.glob(args.input):
