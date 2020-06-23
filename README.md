@@ -1,4 +1,4 @@
-# Colab-ESRGAN (with old-arch) [[Enhanced SRGAN Paper]](https://arxiv.org/abs/1809.00219)
+# Colab-ESRGAN [[Enhanced SRGAN Paper]](https://arxiv.org/abs/1809.00219)
 ## Simply download `Colab-ESRGAN-(new&oldarch).ipynb` and open it inside your Google Drive or click [here](https://colab.research.google.com/drive/10DDaSPKlWM8TSRVPOjwtFg0LXGvezXs4?usp=sharing) and copy the file with "File > Save a copy to Drive..." into your Google Drive. 
 ### 
 
