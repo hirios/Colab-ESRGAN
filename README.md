@@ -1,5 +1,5 @@
 # Colab-ESRGAN (with old-arch) [[Enhanced SRGAN Paper]](https://arxiv.org/abs/1809.00219)
-## Simply download `Colab-ESRGAN (old-arch).ipynb` and open it inside your Google Drive or click [here](https://colab.research.google.com/drive/157AC-bf2FZgX2WM6SCVwE4RsgmAC3oyk?usp=sharing) and copy the file with "File > Save a copy to Drive..." into your Google Drive. 
+## Simply download `Colab-ESRGAN-(new&oldarch).ipynb` and open it inside your Google Drive or click [here](https://colab.research.google.com/drive/10DDaSPKlWM8TSRVPOjwtFg0LXGvezXs4?usp=sharing) and copy the file with "File > Save a copy to Drive..." into your Google Drive. 
 ### 
 
 ### Credits
@@ -10,7 +10,7 @@ Original Colab file created by shahidul56 can be found [here](https://github.com
 
 #### Important information
 
-- If you can't open `Colab-ESRGAN (old-arch).ipynb` inside your Google Drive, try this [colab link](https://colab.research.google.com/drive/157AC-bf2FZgX2WM6SCVwE4RsgmAC3oyk?usp=sharing) and save it to your Google Drive. The "open in Colab"-button can be missing in Google Drive, if that person never used Colab.
+- If you can't open `Colab-ESRGAN-(new&oldarch).ipynb` inside your Google Drive, try this [colab link](https://colab.research.google.com/drive/10DDaSPKlWM8TSRVPOjwtFg0LXGvezXs4?usp=sharing) and save it to your Google Drive. The "open in Colab"-button can be missing in Google Drive, if that person never used Colab.
 - This master is old-arch and is far more compatible than the original master.
 - ESRGAN tutorials and custom models can be found in this [wiki page](https://upscale.wiki/wiki/Main_Page).
 - Google Colab does assign a random GPU. It depends on luck.
