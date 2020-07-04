@@ -172,7 +172,7 @@ class ESRGAN(object):
             print("No models selected or found!")
             return 1
 
-        amount_files = len(os.listdir(args.input))
+        amount_files = len(os.listdir(args.input))-1
 
         for model_upscale in self.models_upscale:
             time_values = []
