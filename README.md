@@ -12,7 +12,6 @@ Also thanks to [ata4](https://github.com/ata4) for creating [esrgan-launcher](ht
 #### Important information
 
 - If you can't open `Colab-ESRGAN-(new&old-arch).ipynb` inside your Google Drive, try this [colab link](https://colab.research.google.com/github/styler00dollar/Colab-ESRGAN/blob/master/Colab-ESRGAN-(new&old-arch).ipynb) and save it to your Google Drive. The "open in Colab"-button can be missing in Google Drive, if that person never used Colab.
-- This master is old-arch and is far more compatible than the original master.
 - ESRGAN tutorials and custom models can be found in this [wiki page](https://upscale.wiki/wiki/Main_Page).
 - Google Colab does assign a random GPU. It depends on luck.
 - The Google Colab VM does have a maximum session length of 12 hours. Additionally there is a 30 minute timeout if you leave colab. The VM will be deleted after these timeouts.
