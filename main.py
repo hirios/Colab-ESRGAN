@@ -9,6 +9,7 @@ import torch
 import model
 import upscale
 import time
+from tqdm import tqdm
 
 class ESRGAN(object):
     def __init__(self):
@@ -175,8 +176,6 @@ class ESRGAN(object):
         amount_files = len(os.listdir(args.input))-1
 
         for model_upscale in self.models_upscale:
-            time_values = []
-            counter = 0
             models = self.models_prefilter + [model_upscale] + self.models_postfilter
             model_name = "_".join([model.name() for model in models])
 
@@ -187,10 +186,8 @@ class ESRGAN(object):
 
             if os.path.isdir(args.input):
                 for dirpath, _, filenames in os.walk(args.input):
-                    for filename in filenames:
-                        start = time.time()
-                        counter += 1
-
+                    for filename in tqdm(filenames):
+                        print("\n")
                         input_path = os.path.join(dirpath, filename)
                         
                         input_path_rel = os.path.relpath(input_path, args.input)
@@ -198,15 +195,7 @@ class ESRGAN(object):
                         output_path = os.path.join(output_dir, output_path_rel)
                         os.makedirs(os.path.dirname(output_path), exist_ok=True)
                         self._process_file(input_path, output_path, models)
-                        
-                        end = time.time()
-                        final_time = end - start 
-                        time_values.append(final_time)
-                        print('Image %d out of %d' %(counter,amount_files))
-
-                        print(f"********** Time per frame (avg): %d s Time left: %d s **********" % ( (sum(time_values) / len(time_values)), (sum(time_values) / len(time_values)*(amount_files-counter))))
-
-
+                  
             else:
                 for input_path in glob.glob(args.input):
                     if os.path.isdir(input_path):
